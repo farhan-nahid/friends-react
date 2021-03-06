@@ -3,21 +3,19 @@ import { Button, Card, CardGroup } from 'react-bootstrap';
 import { Link, useHistory } from 'react-router-dom';
 
 const SingleFriend = (props) => {
-    const { name, email, website, id } = props.friend;
+    const { friend } = props;
+    const { name, email, id } = friend;
     const history = useHistory();
     const handleClick = (friendId) => {
         const url = `/friend/${friendId}`;
         history.push(url);
     };
     return (
-        <CardGroup className="container">
-            <Card className="row">
-                <Card.Body className="col-md-6">
+        <CardGroup className="col-md-6 col-lg-3 mt-3 ">
+            <Card className="border-0">
+                <Card.Body className="shadow ">
                     <Card.Title>Name: {name}</Card.Title>
-                    <Card.Text>
-                        Email : {email}
-                        Website:{website}
-                    </Card.Text>
+                    <Card.Text>{email}</Card.Text>
                     <p>
                         Id : <Link to={`/friend/${id}`}> {id}</Link>{' '}
                     </p>

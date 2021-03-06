@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import NavBar from '../Navbar/Navbar';
 import SingleFriend from '../SingleFriend/SingleFriend';
 
 const Home = () => {
@@ -11,12 +12,16 @@ const Home = () => {
             .then((data) => setFriends(data));
     }, []);
     return (
-        <div>
-            <h1>Total Friend : {friends.length}</h1>
-            {friends.map((friend) => (
-                <SingleFriend friend={friend} />
-            ))}
-        </div>
+        <>
+            <NavBar />
+            <div className="container">
+                <div className="row">
+                    {friends.map((friend) => (
+                        <SingleFriend friend={friend} />
+                    ))}
+                </div>
+            </div>
+        </>
     );
 };
 
